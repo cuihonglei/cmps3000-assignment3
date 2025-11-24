@@ -8,12 +8,14 @@ class Order:
     def calculate_total(self):
         total = 0
         for item in self.items:
-            total += item[1] + item[2]  
+            # Changed '+' to '*' to correctly calculate cost (Quantity * Price)
+            total += item[1] * item[2]  
         if total == 0:  
             return "Empty Order"
         return total
 
-    def add_item(self, item_name, quantity, price)
+    # Added colon ':' at the end of the line
+    def add_item(self, item_name, quantity, price):
         self.items.append((item_name, quantity, price))  
 
     def remove_item(self, item_name):
@@ -21,11 +23,13 @@ class Order:
             if item[0] == item_name:
                 self.items.remove(item)  
 
+    # Added the missing closing parenthesis ')'
     def print_summary(self):
         print("Order Summary for", self.customer_name)
-        for item in self.itemz: 
+        # Corrected typo from 'itemz' to 'items'
+        for item in self.items: 
             print(f"{item[1]} x {item[0]} @ ${item[2]:.2f}")
-        print("Total: $", self.calculate_total()
+        print("Total: $", self.calculate_total())
 
     def apply_discount(self, code): 
         if code == "SAVE10":
